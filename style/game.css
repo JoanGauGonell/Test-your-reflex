@@ -1,6 +1,6 @@
 /* DISPLAY GAME */
-.display-game {
-    display: flex;
+.display-game{
+    display: none;
 }
 
 .game-container{
