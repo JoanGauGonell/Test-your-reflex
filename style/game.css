@@ -1,0 +1,38 @@
+/* DISPLAY GAME */
+.display-game{
+    display: none;
+}
+
+.game-container{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.game-container > *{
+    max-height: 100%;
+    padding: 10px 0;
+    margin-left: 20%;
+}
+
+/* RANKING SECTION */
+.ranking{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    width: 40%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.ranking-position{
+    padding: 3rem 5.5rem;
+}
+
+/* TITLE RANKING */
+
+.title-ranking {
+    margin-left: 15%;
+}
