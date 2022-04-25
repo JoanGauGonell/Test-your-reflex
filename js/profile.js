@@ -1,3 +1,37 @@
+// VALIDATION USERNAME
+const smallUserName = document.getElementById("errUserName");
+let userName = document.getElementById("userName");
+
+document.getElementById("contBtn").addEventListener("click", multi)
+
+
+function errUserName(msg) {
+    console.log("samllUserName", smallUserName);
+    document.getElementById("userName").style.borderColor = "red";
+    smallUserName.textContent = msg;
+}
+
+
+
+function userNameValidation() {
+    if (userName.value == "") {
+    errUserName("Input is empty!");
+    }
+    else if (userName.value.indexOf(" ") >= 0) {
+    errUserName("Name has spaces");
+    }
+    else if (userName.value.length < 5) {
+    errUserName("Username less then 5");
+    } else if (userName.value.length > 20) {
+    errUserName("Username more then 20");
+    } else
+    {
+    userName.style.borderColor = "green";
+    smallUserName.textContent = "";
+    }
+}
+
+
 
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
@@ -15,22 +49,22 @@ function dataStore()
         userObj.userAge= age;
         localStorage.setItem(name , JSON.stringify(userObj));
 
-         ;}
+}
 function show() {
-    document.querySelector(".display-game").style.display = "block";
+    document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
 }
 function multi()
-{ 
-    dataStore();
-    show();
-};
-button.addEventListener("click", multi);
-// function iterateLocalSt (){
-//      function(){
+{
+userNameValidation();
 
-//     }
-// }
+if ( userName.style.borderColor == "green")
+    {
+        dataStore();
+        show();
+    }
+}
+
 
 
 //TIMER
@@ -43,3 +77,4 @@ document.querySelector("#gameStart").addEventListener("click", randomTimer )
         console.log("hello");
         }
     ,randomSeconds);}
+
