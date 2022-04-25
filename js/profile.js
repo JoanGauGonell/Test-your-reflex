@@ -1,22 +1,21 @@
-let inputForm = document.querySelectorAll("#formProfile input")
 let button = document.querySelector("#contBtn");
-let userName = ""
-let userAge = ""
-const userObj = {
-    username:"",
+let userObj = {
+    userName:"",
     userAge:"",
     userRecord:""
 }
 
 button.addEventListener("click", function dataStore()
 {
-     inputForm.forEach(element => {
-         if (element.name == "userName"){
+        let name = document.getElementById("userName").value;
+        let age = document.getElementById("userAge").value;
+        userObj.userName = name;
+        userObj.userAge= age;
+        localStorage.setItem(name , JSON.stringify(userObj));
 
-         }
-         console.log(element.value);
+         ;
         
-    });
+    // });
 
 })
 button.addEventListener("click",  show)
