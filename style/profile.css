@@ -1,1 +1,17 @@
-hola
+
+
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30%;
+    padding:0.5rem 1rem;
+
+}
+
+/* .form-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
