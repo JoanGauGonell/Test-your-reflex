@@ -2,8 +2,17 @@
 @import url(game.css);
 
 *{
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    background-color: #00d4ff;
+    color: rgb(255, 123, 0);
 }
+
+body{
+    overflow: hidden;
+
+}
+
+
 
