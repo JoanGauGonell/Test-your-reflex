@@ -12,43 +12,38 @@
 </head>
 
 <body>
-    <section class="profile" style="display: none;">
+    <section class="profile">
         <h1 class="title-profile">Test your reflexes</h1>
-        <form class="form-profile" action="">
+        <form id="formProfile" class="form-profile" action="">
             <div class="input-profile">
-                <label for="UserName">User name</label>
-                <input id="UserName" type="text"name="UserName">
+                <label for="userName">User name</label>
+                <input id="userName" type="text" name="UserName">
             </div>
             <div class="input-age-profile">
-                <label for="AgeProfile">Age</label>
-                <input id="AgeProfile" type="text">
+                <label for="userAge">Age</label>
+                <input id="userAge" type="text" name="userAge">
             </div>
-            <div class="submit-profile"><input type="button" value="Continue">
+            <div class="submit-profile">
+                <button id="contBtn" type="button" value="Continue">CONTINUE</button>
             </div>
         </form>
     </section>
-    <section class="getReady">
+    <!-- DISPLAY GAME -->
+    <section class="display-game">
+        <div class="game-container">
         <h1 class="title-getReady">Start Game</h1>
         <p class="name-user">Manuel</p>
-        <div class="conteiner-Game">
+        <div class="display-game">
             <div class="button-start">
                 <label for=""><input type="button" id="gameStart" value="Start Game!"></label>
-                <label for=""><input type="button" id="gameStop" value="STOP"></label>
-            </div>
-        </div>
-        <section class="ranking">
-            <h2 class="title-ranking">RANKING</h2>
             <div class="ranking-position">
-                <ul>
-                    <li>Manuel</li>
-                </ul>
-            </div>
         </section>
     </section>
+    <!-- FINISH PAGE -->
     <section class="finish-page" hidden>
         <h1 class="title-your-score">YOUR SCORE </h1>
         <div class="my-score">
-            <p>20 puntos</p>
+            <p>20 points </p>
         </div>
     </section>
 </body>
