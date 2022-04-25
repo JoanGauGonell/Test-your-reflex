@@ -1,12 +1,9 @@
-
-
 .profile{
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;  /* 100vh is 100% of the height of the viewport. */
-    margin:0rem 60rem;
 }
 
 
