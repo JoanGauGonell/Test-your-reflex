@@ -6,7 +6,6 @@ document.getElementById("contBtn").addEventListener("click", multi)
 
 
 function errUserName(msg) {
-    console.log("samllUserName", smallUserName);
     document.getElementById("userName").style.borderColor = "red";
     smallUserName.textContent = msg;
 }

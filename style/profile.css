@@ -1,5 +1,5 @@
-.profile {
-    display: flex;
+.profile{
+    display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
