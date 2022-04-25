@@ -15,23 +15,18 @@ button.addEventListener("click", function dataStore()
 
          }
          console.log(element.value);
+        
     });
 
 })
+button.addEventListener("click",  show)
+function show() {
+    document.querySelector(".display-game").style.display = "block";
+    document.querySelector(".profile").style.display = "none";
+}
 
-addEventListener.button("click", )
-function 
-
-
-
-
-
-
-
-
-
-
-
+// addEventListener.button("click", )
+// function 
 
 document.querySelector("#gameStart").addEventListener("click", randomTimer )
   
@@ -42,4 +37,4 @@ function randomTimer (){
         gameStop.style.display = "block";
         console.log("hello");
         }
-    ,randomSeconds);
+    ,randomSeconds);}
