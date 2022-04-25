@@ -18,7 +18,8 @@
             <form id="formProfile" class="form-profile" action="">
                 <div class="input-profile">
                     <label for="userName">User name:</label>
-                    <input id="userName" type="text" name="UserName">
+                    <input id="userName" type="text" name="UserName"><br>
+                    <small id="errUserName"></small>
                 </div>
                 <div class="input-profile">
                     <label for="userAge">Age:</label>
@@ -38,7 +39,7 @@
                     <h1 class="title-getReady">Ready to BEGIN? Click the start button!</h1>
                     <div class="playerName__style--right">
                         <h2>PLAYER:</h2>
-                        <p class="playerName" id="playerName">Manuel</p>
+                        <p class="playerName" id="playerName">Adria</p>
                     </div>
                 </div>
                 <!-- DISPLAY GAME -->
@@ -58,24 +59,24 @@
             <!-- RANKING LIST -->
             <div class="ranking-list">
                 <h2>RANKING TOP TEN</h2>
+                <div class="player__list--header">
+                </div>
                 <div class="player__list">
-                    <div>
-                        <div>NAME</div>
+                    <div class="name__list"><p>Name</p><br>
                         <ol>
-                            <li><span>Adria</span> <span>14pts.</span></li>
+                            <li class="li__span">Adria</li>
                         </ol>
-                    </div>
-                    <div>
-                        <div>SCORE</div>
+                    </div><br>
+                    <div class="score__list"><p>Score</p><br>
                         <ul>
-                            <li><span>14pts.</span></li>
+                            <li>14 pts</li>
                         </ul>
                     </div>
                 </div>
             </div>
     </section>
     <!-- FINISH PAGE -->
-    <section class="finish-page" hidden>
+    <section class="display__finish">
         <h1 class="title-your-score">YOUR SCORE </h1>
         <div class="my-score">
             <p>20 points </p>

@@ -3,17 +3,15 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
 }
-.game > *{
-    padding: 15rem 2rem;
-    width: 55%;
-}
+
 
 
 .display-section{
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    width: 50%;
+    padding-top: 5%;
 }
 
 .display-game{
@@ -28,6 +26,12 @@
     height: 100%;
     border: solid 1px black;
 }
+
+/* TITLE H2 RANKING */
+.ranking-list h2{
+    padding-right: 0.5rem;
+}
+
 /* USER NAME TITLE */
 .userNameTitle h2 p{
     display: table;
@@ -53,20 +57,37 @@
 .ranking-list{
     display: flex;
     flex-direction: column;
-    width: 20%;
     border: 1px solid black;
-    padding-left: 1.5rem;
-    padding-top: 0.5rem;
+    padding-left: 1rem;
+    padding-top: 1rem;
 }
 
 .button-end{
     display: none;
 }
-.player__list ol{
-    padding: 1rem;
-}
+
+/* RANKING LIST STYLE */
 
 .player__list--header{
     display: flex;
     justify-content: space-around;
+}
+
+.player__list{
+    display: flex;
+    justify-content: space-around;
+}
+
+.player__list p{
+    padding-top: 0.5rem;
+    font-size: large;
+}
+
+.score__list ul{
+    list-style-type: none;
+}
+
+
+.display__finish{
+    display: none;
 }
