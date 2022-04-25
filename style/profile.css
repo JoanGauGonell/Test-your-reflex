@@ -3,15 +3,59 @@
 .profile{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin-top: 30%;
-    padding:0.5rem 1rem;
-
+    justify-content: center;
+    height: 100vh;  /* 100vh is 100% of the height of the viewport. */
+    margin:0rem 60rem;
 }
 
-/* .form-profile{
+
+.profile > *{
+    padding: 1rem 2rem;
+    background-color: rgb(204, 204, 204);
+}
+
+.input-profile {
+    padding: 1rem 2rem;
+}
+
+.input-age-profile{
+    padding: 1rem 2rem;
+}
+
+.submit-profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    background-color: rgb(204, 204, 204);
+}
+.title-profile{
+    background-color: rgb(204, 204, 204);
+}
+/* PROFILE-MENU */
+.profile-menu{
     display: flex;
     flex-direction: column;
     align-items: center;
-} */
+    justify-content: center;
+    height: 60%;
+    border-radius: 1rem;
+    background-color: rgb(204, 204, 204);
+}
+
+
+/* FORM INPUT */
+
+.form-profile label{
+    display: table-cell;
+    padding: 1rem;
+    background-color: rgb(204, 204, 204);
+}
+.form-profile input {
+    display: table-cell;
+}
+.input-profile{
+    display:table-row;
+    background-color: rgb(204, 204, 204);
+}
