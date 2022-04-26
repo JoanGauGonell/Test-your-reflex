@@ -93,7 +93,7 @@ function startButton() {
 
 function hideTitle() {
     document.getElementById("getReady").style.display = "none";
-    document.getElementById("btnNewUser").style.display = "flex";+
+    document.getElementById("btnNewUser").style.display = "flex";
 }
 
 function randomTimer() {
