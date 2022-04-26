@@ -75,3 +75,16 @@ header{
 video{
     width: 100%;
 }
+
+
+/* RESPONSIVE */
+
+@media screen and (max-width:767px){
+    video{
+        height: 100vh;
+        position: relative;
+        top: 50%;
+        object-fit: cover;
+        width:100%;
+    }
+}
