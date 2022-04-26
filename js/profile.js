@@ -2,6 +2,8 @@
 let playerName = "";
 let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
+let buttonStop = document.querySelector("#gameEnd");
+let buttonStartAgain = document.getElementById("buttonStartAgain");
 let userList = [];
 
 let userObj = {
@@ -110,7 +112,6 @@ function randomTimer() {
             }
         }
         let milisecondsElapsed = setInterval(timeElapsed, 10);
-        let buttonStop = document.querySelector("#gameEnd");
         buttonStop.addEventListener("click", printTime);
 
         function printTime() {
@@ -122,4 +123,19 @@ function randomTimer() {
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
     }, randomSeconds);
+}
+
+buttonStop.addEventListener("click", showFinishPage);
+
+function showFinishPage(){
+    document.querySelector(".button-end").style.display= "none";
+    document.getElementById("displayFinish").style.display= "flex";
+}
+
+
+buttonStartAgain.addEventListener("click", showGame);
+
+function showGame(){
+    document.getElementById("displayFinish").style.display= "none";
+    document.getElementById("gameStart").style.display= "flex";
 }

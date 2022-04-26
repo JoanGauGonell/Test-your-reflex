@@ -25,6 +25,8 @@
 }
 
 .display-game {
+    display: flex;
+    justify-content: space-evenly;
     padding: 30%;
     border: 1px solid black;
     border-radius: 5px;
@@ -107,18 +109,10 @@
     list-style-type: none;
 }
 
-
-.display__finish {
-    display: none;
-}
-
 .playerName{
     margin-top: 0.2rem;
 }
 
-/* .title-getReady{
-    display: none;
-} */
 
 .playerName__style--flex{
     display: flex;
