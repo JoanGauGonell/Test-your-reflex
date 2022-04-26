@@ -1,5 +1,6 @@
 // VALIDATION USERNAME
-const smallUserName = document.getElementById("errUserName");
+let playerName="";
+let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
 
 document.getElementById("contBtn").addEventListener("click", multi)
@@ -31,9 +32,6 @@ function userNameValidation() {
 }
 
 
-
-const playerName="";
-
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
 let userObj = {
@@ -42,15 +40,7 @@ let userObj = {
     userRecord: "",
 }
 
-function dataStore() {
-    let name = document.getElementById("userName").value;
-    let age = document.getElementById("userAge").value;
-    userObj.userName = name;
-    playerName= name;
-    userObj.userAge = age;
-    localStorage.setItem(name, JSON.stringify(userObj));
 
-}
 function show() {
     document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
@@ -73,8 +63,14 @@ let secondsElapsed = 0;
 let milisecElapsed = 0;
 
 const buttonStart = document.querySelector("#gameStart");
-buttonStart.addEventListener("click", randomTimer)
-
+buttonStart.addEventListener("click", startButton)
+function startButton(){
+    hideTitle();
+    randomTimer()
+}
+function hideTitle(){
+    document.getElementById("getReady").style.display = "none";
+}
 function randomTimer() {
     buttonStart.style.display = "none";
     let randomSeconds = Math.random() * 10000;
@@ -84,8 +80,6 @@ function randomTimer() {
         function timeElapsed() {
             milisecElapsed++;
                             }
-        
-
         let milisecondsElapsed = setInterval(timeElapsed, 1000)
         let buttonStop = document.querySelector("#gameEnd");
         buttonStop.addEventListener("click", printTime)
@@ -94,11 +88,26 @@ function randomTimer() {
             clearInterval(milisecondsElapsed);
             console.log(milisecElapsed);
             // userObj.userRecord=milisecElapsed;
-            JSON.parse(localStorage.getItem(playerName)).userRecord = milisecElapsed  ;
-
             // console.log(milisecElapsed);
             // console.log(secondsElapsed)
+            userObj.userRecord = milisecElapsed;
+            // let name = userObj.userName;
+            localStorage.setItem(playerName, JSON.stringify(userObj));
+
         }
 
     }, randomSeconds);
+}
+
+function dataStore() {
+    let name = document.getElementById("userName").value;
+    let age = document.getElementById("userAge").value;
+    userObj.userRecord = milisecElapsed;
+    userObj.userName = name;
+    playerName= name;
+    userObj.userAge = age;
+    localStorage.setItem(name, JSON.stringify(userObj));
+    let actualName = document.getElementById("playerName");
+    actualName.textContent = playerName;
+
 }
