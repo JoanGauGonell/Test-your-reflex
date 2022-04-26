@@ -1,10 +1,16 @@
 @import url(profile.css);
 @import url(game.css);
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Work+Sans&display=swap');
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #00d4ff;
-    color: rgb(255, 123, 0);
+    color: rgb(255, 119, 0);
+    font-family: 'Bangers', cursive;
+}
+
+body{
+    height: 100vh;
+    overflow: hidden;
 }

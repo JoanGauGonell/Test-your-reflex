@@ -1,8 +1,20 @@
 /* DISPLAY GAME */
 .game{
-    display:flex;
-    flex-direction: column;
+    display:none;
+    justify-content: center;
     align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    opacity: 75%;
+}
+
+.display-section > *{
+    padding: 1rem 2rem;
+    background-color: rgb(204, 204, 204);
+    border-radius: 5px;
 }
 
 
@@ -17,6 +29,7 @@
 .display-game{
     padding: 30%;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 .game-container{
