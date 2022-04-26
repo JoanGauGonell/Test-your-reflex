@@ -2,6 +2,7 @@
 let playerName = "";
 let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
+let userList = [];
 
 let userObj = {
     userName: "",
@@ -33,11 +34,19 @@ function userNameValidation() {
 
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
-let userList = [];
-
 function show() {
     document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
+}
+
+let buttonNewUser = document.querySelector("#btnNewUser");
+buttonNewUser.addEventListener("click",showProfile);
+function showProfile(){
+    document.querySelector(".game").style.display = "none";
+    document.querySelector(".profile").style.display = "flex";
+    document.querySelector("#userName").value= "";
+    document.querySelector("#userAge").value= "";
+
 }
 
 function multi() {
@@ -84,7 +93,7 @@ function startButton() {
 }
 
 function hideTitle() {
-    document.getElementById("getReady").style.display = "none";
+    document.getElementById("titleGetReady").style.display = "none";
 }
 
 function randomTimer() {
