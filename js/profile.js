@@ -42,10 +42,7 @@ function show() {
 let buttonNewUser = document.querySelector("#btnNewUser");
 buttonNewUser.addEventListener("click",showProfile);
 function showProfile(){
-    document.querySelector(".game").style.display = "none";
-    document.querySelector(".profile").style.display = "flex";
-    document.querySelector("#userName").value= "";
-    document.querySelector("#userAge").value= "";
+    location.reload();
 
 }
 
@@ -93,7 +90,7 @@ function startButton() {
 }
 
 function hideTitle() {
-    document.getElementById("titleGetReady").style.display = "none";
+    document.getElementById("getReady").style.display = "none";
 }
 
 function randomTimer() {
@@ -105,14 +102,20 @@ function randomTimer() {
 
         function timeElapsed() {
             milisecElapsed++;
+            let secondsElapsed = 0;
+            if (milisecElapsed > 99){
+                secondsElapsed ++;
+                milisecElapsed = 0;
+            }
         }
-        let milisecondsElapsed = setInterval(timeElapsed, 100);
+        let milisecondsElapsed = setInterval(timeElapsed, 10);
         let buttonStop = document.querySelector("#gameEnd");
         buttonStop.addEventListener("click", printTime);
 
         function printTime() {
             clearInterval(milisecondsElapsed);
             console.log(milisecElapsed);
+            console.log (secondsElapsed)
   
             userObj.userRecord = milisecElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
