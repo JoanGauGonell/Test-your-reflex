@@ -99,14 +99,13 @@ function randomTimer() {
     let gameStop = document.querySelector(".button-end");
     let timeOutSeconds = setTimeout(function () {
         gameStop.style.display = "flex";
-
+        let secondsElapsed=0;
         function timeElapsed() {
             milisecElapsed++;
-            let secondsElapsed = 0;
-            if (milisecElapsed > 99){
-                secondsElapsed ++;
-                milisecElapsed = 0;
-            }
+            
+            
+            // console.log(milisecElapsed +"miliseconds");
+            // console.log (secondsElapsed + "seconds")
         }
         let milisecondsElapsed = setInterval(timeElapsed, 10);
         let buttonStop = document.querySelector("#gameEnd");
@@ -114,10 +113,12 @@ function randomTimer() {
 
         function printTime() {
             clearInterval(milisecondsElapsed);
-            console.log(milisecElapsed);
-            console.log (secondsElapsed)
-  
-            userObj.userRecord = milisecElapsed;
+            let secondsElapsed = milisecElapsed/100;            
+            // console.log(milisecElapsed +"miliseconds");
+            console.log (secondsElapsed + "seconds")
+            // buttonStop.style.display="none";
+
+            userObj.userRecord = secondsElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
     }, randomSeconds);
