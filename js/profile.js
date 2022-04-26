@@ -46,7 +46,7 @@ function dataStore() {
     let name = document.getElementById("userName").value;
     let age = document.getElementById("userAge").value;
     userObj.userName = name;
-    playerName= name;
+    playerName = name;
     userObj.userAge = age;
     localStorage.setItem(name, JSON.stringify(userObj));
 
