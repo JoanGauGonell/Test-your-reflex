@@ -137,7 +137,7 @@
 /* RESPONSIVE */
 @media screen and (max-width:767px){
     .game{
-        display: flex;
+        display: none;
     }
 
     .display-section {
