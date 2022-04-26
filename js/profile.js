@@ -2,6 +2,8 @@
 let playerName = "";
 let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
+let buttonStop = document.querySelector("#gameEnd");
+let buttonStartAgain = document.getElementById("buttonStartAgain");
 let userList = [];
 
 let userObj = {
@@ -41,14 +43,9 @@ function show() {
 }
 
 let buttonNewUser = document.querySelector("#btnNewUser");
-buttonNewUser.addEventListener("click", showProfile);
-
-function showProfile() {
-    document.querySelector(".game").style.display = "none";
-    document.querySelector(".profile").style.display = "flex";
-    document.querySelector("#userName").value = "";
-    document.querySelector("#userAge").value = "";
-
+buttonNewUser.addEventListener("click",showProfile);
+function showProfile(){
+    location.reload();
 }
 
 function multi() {
@@ -95,7 +92,8 @@ function startButton() {
 }
 
 function hideTitle() {
-    document.getElementById("titleGetReady").style.display = "none";
+    document.getElementById("getReady").style.display = "none";
+    document.getElementById("btnNewUser").style.display = "flex";
 }
 
 function randomTimer() {
@@ -107,16 +105,37 @@ function randomTimer() {
 
         function timeElapsed() {
             milisecElapsed++;
+            let secondsElapsed = 0;
+            if (milisecElapsed > 99){
+                secondsElapsed ++;
+                milisecElapsed = 0;
+            }
         }
-        let milisecondsElapsed = setInterval(timeElapsed, 1000);
-        let buttonStop = document.querySelector("#gameEnd");
+        let milisecondsElapsed = setInterval(timeElapsed, 10);
         buttonStop.addEventListener("click", printTime);
 
         function printTime() {
             clearInterval(milisecondsElapsed);
             console.log(milisecElapsed);
+            console.log (secondsElapsed)
+  
             userObj.userRecord = milisecElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
     }, randomSeconds);
+}
+
+buttonStop.addEventListener("click", showFinishPage);
+
+function showFinishPage(){
+    document.querySelector(".button-end").style.display= "none";
+    document.getElementById("displayFinish").style.display= "flex";
+}
+
+
+buttonStartAgain.addEventListener("click", showGame);
+
+function showGame(){
+    document.getElementById("displayFinish").style.display= "none";
+    document.getElementById("gameStart").style.display= "flex";
 }
