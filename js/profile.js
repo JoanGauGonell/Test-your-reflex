@@ -1,6 +1,7 @@
 // VALIDATION USERNAME
-const smallUserName = document.getElementById("errUserName");
+let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
+let playerName="";
 
 document.getElementById("contBtn").addEventListener("click", multi)
 
@@ -32,7 +33,7 @@ function userNameValidation() {
 
 
 
-const playerName="";
+
 
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
