@@ -34,18 +34,20 @@ function userNameValidation() {
 
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
+
 function show() {
     document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
 }
 
 let buttonNewUser = document.querySelector("#btnNewUser");
-buttonNewUser.addEventListener("click",showProfile);
-function showProfile(){
+buttonNewUser.addEventListener("click", showProfile);
+
+function showProfile() {
     document.querySelector(".game").style.display = "none";
     document.querySelector(".profile").style.display = "flex";
-    document.querySelector("#userName").value= "";
-    document.querySelector("#userAge").value= "";
+    document.querySelector("#userName").value = "";
+    document.querySelector("#userAge").value = "";
 
 }
 
@@ -105,20 +107,14 @@ function randomTimer() {
 
         function timeElapsed() {
             milisecElapsed++;
-<<<<<<< HEAD
-                            }
-        let milisecondsElapsed = setInterval(timeElapsed, 100)
-=======
         }
         let milisecondsElapsed = setInterval(timeElapsed, 1000);
->>>>>>> 94e369823d9eb2b342da91aeff219786e4a8bde3
         let buttonStop = document.querySelector("#gameEnd");
         buttonStop.addEventListener("click", printTime);
 
         function printTime() {
             clearInterval(milisecondsElapsed);
             console.log(milisecElapsed);
-  
             userObj.userRecord = milisecElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
