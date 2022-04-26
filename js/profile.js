@@ -105,19 +105,21 @@ function randomTimer() {
 
         function timeElapsed() {
             milisecElapsed++;
+<<<<<<< HEAD
+                            }
+        let milisecondsElapsed = setInterval(timeElapsed, 100)
+=======
         }
         let milisecondsElapsed = setInterval(timeElapsed, 1000);
+>>>>>>> 94e369823d9eb2b342da91aeff219786e4a8bde3
         let buttonStop = document.querySelector("#gameEnd");
         buttonStop.addEventListener("click", printTime);
 
         function printTime() {
             clearInterval(milisecondsElapsed);
             console.log(milisecElapsed);
-            // userObj.userRecord=milisecElapsed;
-            // console.log(milisecElapsed);
-            // console.log(secondsElapsed)
+  
             userObj.userRecord = milisecElapsed;
-            // let name = userObj.userName;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
     }, randomSeconds);
