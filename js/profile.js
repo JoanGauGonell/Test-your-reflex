@@ -115,8 +115,8 @@ buttonStart.addEventListener("click", startButton);
 function startButton() {
     hideTitle();
     randomTimer();
-    buttonStop.style.marginLeft= getRandom(0, 400 - 200)+'px'; // 👈🏼 Horizontally
-    buttonStop.style.marginTop = getRandom(0, 400 - 200)+'px'; // 👈🏼 Vertically
+    buttonStop.style.marginLeft= getRandom(0, 400 - 800)+'px'; // 👈🏼 Horizontally
+    buttonStop.style.marginTop = getRandom(0, 300 - 600)+'px'; // 👈🏼 Vertically
     document.getElementById("playerNameStyle").style.justifyContent= "space-between";
 }
 
@@ -171,4 +171,10 @@ buttonStartAgain.addEventListener("click", showGame);
 function showGame(){
     document.getElementById("displayFinish").style.display= "none";
     document.getElementById("gameStart").style.display= "flex";
+}
+
+document.getElementById("muteSound").addEventListener("click", soundMute);
+
+function soundMute(){
+    document.getElementById("soundIntro").mute = true;
 }
