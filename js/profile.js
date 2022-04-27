@@ -8,11 +8,11 @@ let buttonStop = document.querySelector("#gameEnd");
 let buttonStartAgain = document.getElementById("buttonStartAgain");
 let userList = [];
 
-// let userObj = {
-//     userName: "",
-//     userAge: "",
-//     userRecord: ""
-// };
+let userObj = {
+    userName: "",
+    userAge: "",
+    userRecord: ""
+};
 
 document.getElementById("contBtn").addEventListener("click", multi);
 
@@ -35,26 +35,6 @@ function userNameValidation() {
         smallUserName.textContent = "";
     }
 }
-
-
-
-
-
-//RANKING Y DATA STORAGE
-let button = document.querySelector("#contBtn");
-let userObj = {
-    userName: "",
-    userAge: "",
-    userRecord: "",
-}
-
-function dataStore() {
-    let name = document.getElementById("userName").value;
-    let age = document.getElementById("userAge").value;
-    userObj.userName = name;
-    playerName = name;
-    userObj.userAge = age;
-    localStorage.setItem(name, JSON.stringify(userObj));
 
 function errUserAge(msg) {
     document.getElementById("userAge").style.borderColor = "red";
