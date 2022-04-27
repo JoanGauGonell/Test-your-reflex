@@ -9,7 +9,7 @@ let userList = [];
 let userObj = {
     userName: "",
     userAge: "",
-    userRecord: "",
+    userRecord: ""
 };
 
 document.getElementById("contBtn").addEventListener("click", multi);
@@ -41,6 +41,12 @@ function show() {
     document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
 }
+function getName (){
+    let name = document.getElementById("userName").value;
+let actualName = document.getElementById("playerName");
+actualName.textContent = name;
+
+}
 
 let buttonNewUser = document.querySelector("#btnNewUser");
 buttonNewUser.addEventListener("click",showProfile);
@@ -50,34 +56,34 @@ function showProfile(){
 
 function multi() {
     userNameValidation();
-
+    getName();
     if (userName.style.borderColor == "green") {
-        dataStore();
+        // dataStore();
         show();
     }
 }
 
-function dataStore() {
-    let name = document.getElementById("userName").value;
-    let age = document.getElementById("userAge").value;
-    userObj.userName = name;
-    userObj.userAge = age;
-    playerName = name;
-    localStorage.setItem(name, JSON.stringify(userObj));
+// function dataStore() {
+//     let name = document.getElementById("userName").value;
+//     let age = document.getElementById("userAge").value;
+//     userObj.userName = name;
+//     userObj.userAge = age;
+//     playerName = name;
+//     localStorage.setItem(name, JSON.stringify(userObj));
 
-    let actualName = document.getElementById("playerName");
-    actualName.textContent = playerName;
+//     let actualName = document.getElementById("playerName");
+//     actualName.textContent = playerName;
 
-    if (localStorage.getItem("usersList") == null) {
-        userList.push(userObj);
-        localStorage.setItem("usersList", JSON.stringify(userList));
-    } else {
-        userList = JSON.parse(localStorage.getItem("usersList"));
-        userList.push(userObj);
-        console.log(userList);
-        localStorage.setItem("usersList", JSON.stringify(userList));
-    }
-}
+//     if (localStorage.getItem("usersList") == null) {
+//         userList.push(userObj);
+//         localStorage.setItem("usersList", JSON.stringify(userList));
+//     } else {
+//         userList = JSON.parse(localStorage.getItem("usersList"));
+//         userList.push(userObj);
+//         console.log(userList);
+//         localStorage.setItem("usersList", JSON.stringify(userList));
+//     }
+// }
 
 //TIMER
 let secondsElapsed = 0;
@@ -114,19 +120,51 @@ function randomTimer() {
             // console.log (secondsElapsed + "seconds")
         }
         let milisecondsElapsed = setInterval(timeElapsed, 10);
-        buttonStop.addEventListener("click", printTime);
+        buttonStop.addEventListener("click", multiFunction);
 
+        function multiFunction(){
+            printTime();
+            dataStore();
+            
+        }
         function printTime() {
             clearInterval(milisecondsElapsed);
-            let secondsElapsed = milisecElapsed/100;            
+            let secondsElapsed = milisecElapsed/100; 
+            userObj.userRecord = secondsElapsed;           
             // console.log(milisecElapsed +"miliseconds");
             console.log (secondsElapsed + "seconds")
             // buttonStop.style.display="none";
-
-            userObj.userRecord = secondsElapsed;
+            document.getElementById("myScore").textContent=secondsElapsed;
+            // userObj.userRecord = secondsElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
     }, randomSeconds);
+        function dataStore() {
+            
+            let name = document.getElementById("userName").value;
+            let age = document.getElementById("userAge").value;
+            userObj.userName = name;
+            userObj.userAge = age;
+            // userObj.userRecord = localStorage.getItem ("playerName", JSON.parse(userObj.userRecord));
+            playerName = name;
+            localStorage.setItem(name, JSON.stringify(userObj));
+        
+            let actualName = document.getElementById("playerName");
+            actualName.textContent = playerName;
+        
+            if (localStorage.getItem("usersList") == null) {
+                userList.push(userObj);
+                console.log(userList)
+                localStorage.setItem("usersList", JSON.stringify(userList));
+            } else {
+                userList = JSON.parse(localStorage.getItem("usersList"));
+                userList.push(userObj);
+                console.log(userList);
+                localStorage.setItem("usersList", JSON.stringify(userList));
+            }
+        }
+
+
 }
 
 const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
@@ -146,4 +184,19 @@ buttonStartAgain.addEventListener("click", showGame);
 function showGame(){
     document.getElementById("displayFinish").style.display= "none";
     document.getElementById("gameStart").style.display= "flex";
+    milisecElapsed=0;
 }
+
+
+//SORT ARRAY
+function sortArray(){
+ userArray =  JSON.parse(localStorage.getItem("usersList"));
+
+ userArray.sort((a, b) => {
+    return a.userRecord - b.userRecord;
+});
+ 
+
+console.log(userArray);}
+
+sortArray();
