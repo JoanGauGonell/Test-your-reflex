@@ -2,6 +2,8 @@
 let playerName = "";
 let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
+let buttonStop = document.querySelector("#gameEnd");
+let buttonStartAgain = document.getElementById("buttonStartAgain");
 let userList = [];
 
 let userObj = {
@@ -89,6 +91,9 @@ buttonStart.addEventListener("click", startButton);
 function startButton() {
     hideTitle();
     randomTimer();
+    buttonStop.style.marginLeft= getRandom(0, 400 - 200)+'px'; // 👈🏼 Horizontally
+    buttonStop.style.marginTop = getRandom(0, 400 - 200)+'px'; // 👈🏼 Vertically
+    document.getElementById("playerNameStyle").style.justifyContent= "space-between";
 }
 
 function hideTitle() {
@@ -112,7 +117,6 @@ function randomTimer() {
             }
         }
         let milisecondsElapsed = setInterval(timeElapsed, 10);
-        let buttonStop = document.querySelector("#gameEnd");
         buttonStop.addEventListener("click", printTime);
 
         function printTime() {
@@ -124,4 +128,23 @@ function randomTimer() {
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
     }, randomSeconds);
+}
+
+const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+
+
+
+buttonStop.addEventListener("click", showFinishPage);
+
+function showFinishPage(){
+    document.querySelector(".button-end").style.display= "none";
+    document.getElementById("displayFinish").style.display= "flex";
+}
+
+
+buttonStartAgain.addEventListener("click", showGame);
+
+function showGame(){
+    document.getElementById("displayFinish").style.display= "none";
+    document.getElementById("gameStart").style.display= "flex";
 }

@@ -25,7 +25,10 @@
 }
 
 .display-game {
-    padding: 30%;
+    display: flex;
+    position: relative;
+    justify-content: space-evenly;
+    padding: 9rem;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -54,15 +57,17 @@
     justify-content: space-between;
 }
 
+
 /* STYLE USER NAME */
 .playerName__style--right {
     display: flex;
     flex-direction: row;
     width: 100%;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-.playerName__style--right h2 {
+.playerName__style--right p {
+    display: flex;
     padding-right: 0.5rem;
 }
 
@@ -77,9 +82,14 @@
     width: 23%;
 }
 
+
+/* BUTTON START GAME Y END GAME */
+
 .button-end {
     display: none;
+    position: absolute;
     justify-content: space-evenly;
+
 }
 
 .button-start{
@@ -109,29 +119,32 @@
     list-style-type: none;
 }
 
-
-.display__finish {
-    display: none;
+.playerName__style--flex{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
 }
 
 .playerName{
     margin-top: 0.2rem;
+    font-size: 2rem;
 }
 
-/* .title-getReady{
-    display: none;
-} */
-
-.playerName__style--flex{
-    display: flex;
+.playerNameUser{
+    font-size: 1.2rem;
 }
 
+
+/* BUTTON NEW USER */
 .newUser__button--style{
     display: none;
     border-radius: 5px;
     margin-right: 0.2rem;
     margin-bottom: 0.2rem;
     padding: 0.2rem;
+}
+#btnNewUser{
+    display: none;
 }
 
 /* RESPONSIVE */
