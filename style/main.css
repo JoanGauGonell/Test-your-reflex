@@ -1,5 +1,6 @@
 @import url(profile.css);
 @import url(game.css);
+@import url(finish.css);
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Work+Sans&display=swap');
 
 *{
@@ -8,9 +9,4 @@
     box-sizing: border-box;
     color: rgb(255, 119, 0);
     font-family: 'Bangers', cursive;
-}
-
-body{
-    height: 100vh;
-    overflow: hidden;
 }

@@ -11,15 +11,16 @@
 </head>
 
 <body>
-    <header>
-        <video muted autoplay loop>
-            <source src="/Tunel.mp4">
-        </video>
-    </header>
+    <video id="videoBackGround" muted autoplay loop>
+        <source src="Tunel.mp4">
+    </video>
+    <audio id="soundIntro" autoplay loop>
+        <source src="music-intro.mp3">
+    </audio>
     <!-- PROFILE SECTION -->
     <section class="profile">
+        <h1 class="title-profile">Test your reflexes</h1>
         <div class="profile-menu">
-            <h1 class="title-profile">Test your reflexes</h1>
             <form id="formProfile" class="form-profile" action="">
                 <div class="input-profile">
                     <label for="userName">User name:</label>
@@ -28,11 +29,13 @@
                 </div>
                 <div class="input-profile">
                     <label for="userAge">Age:</label>
-                    <input id="userAge" type="text" name="userAge">
+                    <input id="userAge" type="number" name="userAge">
+                    <small id="errUserAge"></small>
                 </div>
                 <div class="submit-profile">
                     <button id="contBtn" type="button" value="Continue">CONTINUE</button>
                 </div>
+                <div id="muteSound"><button>Music off</button></div>
             </form>
         </div>
     </section>
@@ -41,14 +44,26 @@
         <div class="display-section">
             <div class="game-container">
                 <div class="display-game-header">
-                    <h1 class="title-getReady">Ready to BEGIN? Click the start button!</h1>
-                    <div class="playerName__style--right">
-                        <h2>PLAYER:</h2>
-                        <p class="playerName" id="playerName">Adria</p>
+                    <h1 id="getReady" class="title-getReady">Ready to BEGIN? Click the start button!</h1>
+                    <div id="playerNameStyle" class="playerName__style--right">
+                        <!-- BUTTON NEW USER -->
+                        <button id="btnNewUser" class="newUser__button--style">New User</button>
+                        <div class="playerName__style--flex">
+                            <p class="playerNameUser">PLAYER:</p>
+                            <p class="playerName" id="playerName">Adria</p>
+                        </div>
                     </div>
                 </div>
                 <!-- DISPLAY GAME -->
                 <div class="display-game">
+                    <!-- RECORD DISPLAY -->
+                    <section id="displayFinish" class="display__finish">
+                        <h1 class="title-your-score">YOUR SCORE IS </h1>
+                        <div class="my-score">
+                            <p id="myScore"></p>
+                        </div>
+                        <label for="buttonStartAgain"><input id="buttonStartAgain" class="button__finishPage"  type="button" value="Start Again!"></label>
+                    </section>
                     <!-- BUTTON START -->
                     <div class="button-start">
                         <label for="gameStart"><input type="button" id="gameStart" value="Start Game!">
@@ -63,30 +78,42 @@
             </div>
             <!-- RANKING LIST -->
             <div class="ranking-list">
-                <h2>RANKING TOP TEN</h2>
+                <h2>TOP TEN</h2>
                 <div class="player__list--header">
                 </div>
                 <div class="player__list">
-                    <div class="name__list"><p>Name</p><br>
-                        <ol>
-                            <li class="li__span">Adria</li>
+                    <div class="name__list">
+                        <p>Name</p><br>
+                        <ol id="recordName">
+                            <li id="recName1"></li>
+                            <li id="recName2"></li>
+                            <li id="recName3"></li>
+                            <li id="recName4"></li>
+                            <li id="recName5"></li>
+                            <li id="recName6"></li>
+                            <li id="recName7"></li>
+                            <li id="recName8"></li>
+                            <li id="recName9"></li>
+                            <li id="recName10"></li>
                         </ol>
                     </div><br>
-                    <div class="score__list"><p>Score</p><br>
-                        <ul>
-                            <li>14 pts</li>
+                    <div class="score__list">
+                        <p>Score</p><br>
+                        <ul id="recordScore">
+                            <li id="recScore1"></li>
+                            <li id="recScore2"></li>
+                            <li id="recScore3"></li>
+                            <li id="recScore4"></li>
+                            <li id="recScore5"></li>
+                            <li id="recScore6"></li>
+                            <li id="recScore7"></li>
+                            <li id="recScore8"></li>
+                            <li id="recScore9"></li>
+                            <li id="recScore10"></li>
                         </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- FINISH PAGE -->
-    <section class="display__finish">
-        <h1 class="title-your-score">YOUR SCORE </h1>
-        <div class="my-score">
-            <p>20 points </p>
-        </div>
     </section>
 </body>
 
