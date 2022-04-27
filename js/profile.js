@@ -43,8 +43,9 @@ function show() {
 }
 
 let buttonNewUser = document.querySelector("#btnNewUser");
-buttonNewUser.addEventListener("click",showProfile);
-function showProfile(){
+buttonNewUser.addEventListener("click", showProfile);
+
+function showProfile() {
     location.reload();
 }
 
@@ -106,8 +107,8 @@ function randomTimer() {
         function timeElapsed() {
             milisecElapsed++;
             let secondsElapsed = 0;
-            if (milisecElapsed > 99){
-                secondsElapsed ++;
+            if (milisecElapsed > 99) {
+                secondsElapsed++;
                 milisecElapsed = 0;
             }
         }
@@ -117,8 +118,8 @@ function randomTimer() {
         function printTime() {
             clearInterval(milisecondsElapsed);
             console.log(milisecElapsed);
-            console.log (secondsElapsed)
-  
+            console.log(secondsElapsed)
+
             userObj.userRecord = milisecElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
@@ -127,15 +128,15 @@ function randomTimer() {
 
 buttonStop.addEventListener("click", showFinishPage);
 
-function showFinishPage(){
-    document.querySelector(".button-end").style.display= "none";
-    document.getElementById("displayFinish").style.display= "flex";
+function showFinishPage() {
+    document.querySelector(".button-end").style.display = "none";
+    document.getElementById("displayFinish").style.display = "flex";
 }
 
 
 buttonStartAgain.addEventListener("click", showGame);
 
-function showGame(){
-    document.getElementById("displayFinish").style.display= "none";
-    document.getElementById("gameStart").style.display= "flex";
+function showGame() {
+    document.getElementById("displayFinish").style.display = "none";
+    document.getElementById("gameStart").style.display = "flex";
 }
