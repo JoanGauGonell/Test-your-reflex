@@ -2,6 +2,8 @@
 let playerName = "";
 let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
+let userAge = document.getElementById("userAge");
+let smallUserAge = document.getElementById("errUserAge");
 let buttonStop = document.querySelector("#gameEnd");
 let buttonStartAgain = document.getElementById("buttonStartAgain");
 let userList = [];
@@ -34,6 +36,35 @@ function userNameValidation() {
     }
 }
 
+function errUserAge(msg) {
+    document.getElementById("userAge").style.borderColor = "red";
+    smallUserAge.textContent = msg;
+}
+
+function userAgeValidation() {
+    if (userAge.value == "") {
+        errUserAge("Input is empty!");
+    } else if (userAge.value.indexOf(" ") >= 0) {
+        errUserAge("Age has spaces");
+    } else if (userAge.value.length < 2) {
+        errUserAge("UserAge less than 2");
+    } else if (userAge.value.length > 2) {
+        errUserAge("UserAge more then 2");
+    } else {
+        userAge.style.borderColor = "green";
+        smallUserAge.textContent = "";
+    }
+}
+
+function multi() {
+    userNameValidation();
+    userAgeValidation();
+
+    if (userName.style.borderColor == "green" && userAge.style.borderColor == "green" ) {
+        dataStore();
+        show();
+    }
+}
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
 
@@ -49,14 +80,7 @@ function showProfile() {
     location.reload();
 }
 
-function multi() {
-    userNameValidation();
 
-    if (userName.style.borderColor == "green") {
-        dataStore();
-        show();
-    }
-}
 
 function dataStore() {
     let name = document.getElementById("userName").value;
@@ -64,20 +88,21 @@ function dataStore() {
     userObj.userName = name;
     userObj.userAge = age;
     playerName = name;
-    localStorage.setItem(name, JSON.stringify(userObj));
 
-    let actualName = document.getElementById("playerName");
-    actualName.textContent = playerName;
 
     if (localStorage.getItem("usersList") == null) {
         userList.push(userObj);
         localStorage.setItem("usersList", JSON.stringify(userList));
-    } else {
+    } else if (!localStorage.getItem(name)) {
         userList = JSON.parse(localStorage.getItem("usersList"));
         userList.push(userObj);
-        console.log(userList);
         localStorage.setItem("usersList", JSON.stringify(userList));
     }
+
+    localStorage.setItem(name, JSON.stringify(userObj));
+
+    let actualName = document.getElementById("playerName");
+    actualName.textContent = playerName;
 }
 
 //TIMER
