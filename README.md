@@ -4,10 +4,10 @@
 # What the project does
 ### Our project consists of:
 ### Index
-- [Main Page] Main Page
-- [Game Page] Game Page
-- [Game Screen] Game Screen
-- [Player Ranking] Player Ranking
+- [Main-Page] Main Page
+- [Game-Page] Game Page
+- [Game-Screen] Game Screen
+- [Player-Ranking] Player Ranking
 
 ## Main Page
 - The first page, the player needs to input his username and its age to continue to the next page.
@@ -20,12 +20,12 @@
 ## Player Ranking
 - Here you can see your score rising or falling or just checking the scores of everyone else.
 
-## Images
-
-![This is a alt text.](/image/sample.png "This is a sample image.")
-
 ## Challenges
-
-
+# HTML
+- We are growing used to organize our HTML so that any calls to JavaScript or CSS are functional and easy to understand.
+# CSS
+- While still learning a lot CSS it is still a minefield of hardships and "why doesn't this work has I want it to" questions.
+# Java
+- A steep learning curve with issues a long the way but overall functionality was aquired.
 # Who maintains and contributes to the project
 ### Project was build by TEAM 3 **Joan**, **Adriá**, **Matias**, **Miguel**
