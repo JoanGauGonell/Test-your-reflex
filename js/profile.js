@@ -89,6 +89,9 @@ buttonStart.addEventListener("click", startButton);
 function startButton() {
     hideTitle();
     randomTimer();
+    buttonStop.style.marginLeft= getRandom(0, 400 - 200)+'px'; // 👈🏼 Horizontally
+    buttonStop.style.marginTop = getRandom(0, 400 - 200)+'px'; // 👈🏼 Vertically
+    document.getElementById("playerNameStyle").style.justifyContent= "space-between";
 }
 
 function hideTitle() {
@@ -124,6 +127,10 @@ function randomTimer() {
         }
     }, randomSeconds);
 }
+
+const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+
+
 
 buttonStop.addEventListener("click", showFinishPage);
 

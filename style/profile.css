@@ -1,7 +1,10 @@
+/* PROFILE MAIN */
+
 .profile{
     display: flex;
-    justify-content: center;
+    flex-direction: column-reverse;
     align-items: center;
+    justify-content: center;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -12,8 +15,9 @@
 
 
 .profile > *{
+    display: flex;
+    flex-direction: column;
     padding: 1rem 2rem;
-    background-color: rgb(204, 204, 204);
 }
 
 .input-profile {
@@ -32,7 +36,10 @@
     background-color: rgb(204, 204, 204);
 }
 .title-profile{
-    background-color: rgb(204, 204, 204);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20vh;
 }
 /* PROFILE-MENU */
 .profile-menu{
@@ -40,9 +47,17 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 60%;
+    height: 40%;
     border-radius: 1rem;
     background-color: rgb(204, 204, 204);
+}
+
+
+/* BUTTON CONTINUE PROFILE*/
+#contBtn{
+    padding: 1rem;
+    border-radius: 15px;
+    font-size: 25px;
 }
 
 
@@ -55,10 +70,13 @@
 }
 .form-profile input {
     display: table-cell;
+    border-radius: 8px;
+    padding: 10px;
 }
 .input-profile{
     display:table-row;
     background-color: rgb(204, 204, 204);
+    font-size: 25px;
 }
 
 
@@ -77,14 +95,34 @@ video{
 }
 
 
+
 /* RESPONSIVE */
 
-@media screen and (max-width:767px){
+@media screen and (max-width:834px){
     video{
         height: 100vh;
         position: relative;
         top: 50%;
         object-fit: cover;
         width:100%;
+    }
+    .title-profile{
+        font-size: 2.5rem;
+    }
+    .profile{
+        display: flex;
+        justify-content:flex-end;
+    }
+    .profile-menu{
+        background-color: transparent;
+    }
+    .input-profile{
+        background-color: transparent;
+    }
+    .input-profile label{
+        background-color: transparent;
+    }
+    .submit-profile{
+        background-color: transparent;
     }
 }
