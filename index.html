@@ -19,7 +19,6 @@
     <!-- PROFILE SECTION -->
     <section class="profile">
         <div class="profile-menu">
-            <h1 class="title-profile">Test your reflexes</h1>
             <form id="formProfile" class="form-profile" action="">
                 <div class="input-profile">
                     <label for="userName">User name:</label>
@@ -35,6 +34,7 @@
                 </div>
             </form>
         </div>
+        <h1 class="title-profile">Test your reflexes</h1>
     </section>
     <!-- DISPLAY GAME -->
     <section class="game">
@@ -42,18 +42,18 @@
             <div class="game-container">
                 <div class="display-game-header">
                     <h1 id="getReady" class="title-getReady">Ready to BEGIN? Click the start button!</h1>
-                    <div class="playerName__style--right">
+                    <div id="playerNameStyle" class="playerName__style--right">
                         <!-- BUTTON NEW USER -->
                         <button id="btnNewUser" class="newUser__button--style">New User</button>
                         <div class="playerName__style--flex">
-                            <h2>PLAYER:</h2>
+                            <p class="playerNameUser">PLAYER:</p>
                             <p class="playerName" id="playerName">Adria</p>
                         </div>
                     </div>
                 </div>
                 <!-- DISPLAY GAME -->
                 <div class="display-game">
-                    <!-- FINISH PAGE -->
+                    <!-- RECORD DISPLAY -->
                     <section id="displayFinish" class="display__finish">
                         <h1 class="title-your-score">YOUR SCORE IS </h1>
                         <div class="my-score">
