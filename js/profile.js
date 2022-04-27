@@ -59,6 +59,7 @@ function userAgeValidation() {
 function multi() {
     userNameValidation();
     userAgeValidation();
+    
 
     if (userName.style.borderColor == "green" && userAge.style.borderColor == "green") {
         dataStore();
@@ -157,6 +158,7 @@ function randomTimer() {
         function multiFunction() {
             printTime();
             dataStore();
+            printRecord()
 
         }
         function printTime() {
@@ -206,10 +208,10 @@ const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min
 buttonStop.addEventListener("click", showFinishPage);
 
 function showFinishPage() {
+    sortArray();
     document.querySelector(".button-end").style.display = "none";
     document.getElementById("displayFinish").style.display = "flex";
-    sortArray();
-    createLi();
+
 }
 
 
@@ -238,16 +240,62 @@ function sortArray() {
 
 
 
-function createLi() {
+// function createLi() {
 
-    let ol = document.getElementById("recordName");
-    let ul = document.getElementById("recordScore");
+//     let ol = document.getElementById("recordName");
+//     let ul = document.getElementById("recordScore");
 
-    for (let i = 0; i < 10; i++) {
-        let recordName = document.createElement("li");
-        let recordScore =  document.createElement("li");
-        ol.appendChild(recordName).textContent = sortArray()[i].userName;
-        ul.appendChild(recordScore).textContent = sortArray()[i].userRecord;
-    }
+//     for (let i = 0; i < 10; i++) {
+//         let recordName = document.createElement("li");
+//         let recordScore =  document.createElement("li");
+//         ol.appendChild(recordName).textContent = sortArray()[i].userName;
+//         ul.appendChild(recordScore).textContent = sortArray()[i].userRecord;
+//     }
 
+// }
+function printRecord(){
+let recName1 = document.getElementById("recName1");
+let recName2 = document.getElementById("recName2");
+let recName3 = document.getElementById("recName3");
+let recName4 = document.getElementById("recName4");
+let recName5 = document.getElementById("recName5");
+let recName6 = document.getElementById("recName6");
+let recName7 = document.getElementById("recName7");
+let recName8 = document.getElementById("recName8");
+let recName9 = document.getElementById("recName9");
+let recName10 = document.getElementById("recName10");
+
+let record1 = document.getElementById("recScore1");
+let record2 = document.getElementById("recScore2");
+let record3 = document.getElementById("recScore3");
+let record4 = document.getElementById("recScore4");
+let record5 = document.getElementById("recScore5");
+let record6 = document.getElementById("recScore6");
+let record7 = document.getElementById("recScore7");
+let record8 = document.getElementById("recScore8");
+let record9 = document.getElementById("recScore9");
+let record10 = document.getElementById("recScore10");
+
+recName1.textContent = sortArray()[0].userName;
+recName2.textContent = sortArray()[1].userName;
+recName3.textContent = sortArray()[2].userName;
+recName4.textContent = sortArray()[3].userName;
+recName5.textContent = sortArray()[4].userName;
+recName6.textContent = sortArray()[5].userName;
+recName7.textContent = sortArray()[6].userName;
+recName8.textContent = sortArray()[7].userName;
+recName9.textContent = sortArray()[8].userName;
+recName10.textContent = sortArray()[9].userName;
+
+record1.textContent = sortArray()[0].userRecord;
+record2.textContent = sortArray()[1].userRecord;
+record3.textContent = sortArray()[2].userRecord;
+record4.textContent = sortArray()[3].userRecord;
+record5.textContent = sortArray()[4].userRecord;
+record6.textContent = sortArray()[5].userRecord;
+record7.textContent = sortArray()[6].userRecord;
+record8.textContent = sortArray()[7].userRecord;
+record9.textContent = sortArray()[8].userRecord;
+record10.textContent = sortArray()[9].userRecord;
 }
+
