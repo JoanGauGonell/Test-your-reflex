@@ -208,6 +208,8 @@ buttonStop.addEventListener("click", showFinishPage);
 function showFinishPage() {
     document.querySelector(".button-end").style.display = "none";
     document.getElementById("displayFinish").style.display = "flex";
+    sortArray();
+    createLi();
 }
 
 
@@ -220,27 +222,32 @@ function showGame() {
 }
 
 
-//SORT ARRAY
+//SORT ARRAYlet ol = document.getElementById("recordName")
 function sortArray() {
-    userArray = JSON.parse(localStorage.getItem("usersList"));
-
+   let userArray = JSON.parse(localStorage.getItem("usersList"));
+    console.log(userArray);
+    if (userArray !== null){
     userArray.sort((a, b) => {
         return a.userRecord - b.userRecord;
     });
+}
+    return userArray
     // userList = userArray;
     console.log(userArray);
-    
 }
 
 
-    
 
 function createLi() {
+
+    let ol = document.getElementById("recordName");
+    let ul = document.getElementById("recordScore");
+
     for (let i = 0; i < 10; i++) {
-        textcontent = userArray[i].name;
-        textContent = userArray[i].userRecord
+        let recordName = document.createElement("li");
+        let recordScore =  document.createElement("li");
+        ol.appendChild(recordName).textContent = sortArray()[i].userName;
+        ul.appendChild(recordScore).textContent = sortArray()[i].userRecord;
     }
+
 }
-
-
-sortArray();
