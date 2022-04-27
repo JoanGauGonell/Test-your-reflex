@@ -24,6 +24,8 @@ To make it harder the *Stop Button* will happear in random places, perhaps even 
 ## Player Ranking
 Here you can see your score rising or falling or just checking the scores of everyone else.
 
+![Game Score](./assets/FinalScore.JPG)
+
 ## Challenges
 # HTML
 - We are growing used to organize our HTML so that any calls to JavaScript or CSS are functional and easy to understand.
