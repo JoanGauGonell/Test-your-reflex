@@ -20,7 +20,8 @@
 .display-section {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 60%;
+    height: 80%;
     padding-top: 5%;
 }
 
@@ -28,7 +29,7 @@
     display: flex;
     position: relative;
     justify-content: space-evenly;
-    padding: 9rem;
+    padding: 17rem;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -81,23 +82,50 @@
     padding-top: 1rem;
     width: 23%;
 }
+/* DISPLAY FINISH */
+.display__finish{
+    position: absolute;
+}
 
-
+.title-your-score{
+    font-size: 5rem;
+}
+.my-score p{
+    font-size: 4rem;
+}
 /* BUTTON START GAME Y END GAME */
 
 .button-end {
     display: none;
-    position: absolute;
     justify-content: space-evenly;
-
+    position: absolute;
 }
 
 .button-start{
     display: flex;
     justify-content: space-evenly;
+    position: absolute;
 }
 
+#gameStart{
+    padding: 1rem;
+    border-radius: 15px;
+    font-size: 2rem;
+    position: absolute;
+}
 
+#gameEnd{
+    padding: 1rem;
+    border-radius: 15px;
+    font-size: 2rem;
+    position: absolute;
+}
+/* BUTTON STAR AGAIN */
+.button__finishPage {
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 3rem;
+}
 /* RANKING LIST STYLE */
 
 .player__list--header {
