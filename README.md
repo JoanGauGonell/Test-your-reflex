@@ -4,7 +4,7 @@
 # What the project does
 ### Our project consists of:
 ### Index
-- [Main-Page] Main Page
+- [Main Page](#Main-Page)
 - [Game-Page] Game Page
 - [Game-Screen] Game Screen
 - [Player-Ranking] Player Ranking
