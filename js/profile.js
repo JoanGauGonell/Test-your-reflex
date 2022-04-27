@@ -158,7 +158,7 @@ function randomTimer() {
         function multiFunction() {
             printTime();
             dataStore();
-            printRecord()
+            printRecord();
 
         }
         function printTime() {
@@ -209,6 +209,7 @@ buttonStop.addEventListener("click", showFinishPage);
 
 function showFinishPage() {
     sortArray();
+    
     document.querySelector(".button-end").style.display = "none";
     document.getElementById("displayFinish").style.display = "flex";
 
