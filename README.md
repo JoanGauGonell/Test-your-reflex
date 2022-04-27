@@ -3,7 +3,7 @@
 
 # What the project does
 ### Our project consists of:
-### Unordered
+### Index
 *[Main Page] Main Page
 *[Game Page] Game Page
 *[Game Screen] Game Screen
