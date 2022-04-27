@@ -1,40 +1,105 @@
-let inputForm = document.querySelectorAll("#formProfile input")
-let button = document.querySelector("#contBtn");
-let userName = ""
-let userAge = ""
-const userObj = {
-    username:"",
-    userAge:"",
-    userRecord:""
+// VALIDATION USERNAME
+let smallUserName = document.getElementById("errUserName");
+let userName = document.getElementById("userName");
+let playerName="";
+
+document.getElementById("contBtn").addEventListener("click", multi)
+
+
+function errUserName(msg) {
+    document.getElementById("userName").style.borderColor = "red";
+    smallUserName.textContent = msg;
 }
 
-button.addEventListener("click", function dataStore()
-{
-     inputForm.forEach(element => {
-         if (element.name == "userName"){
 
-         }
-         console.log(element.value);
-        
-    });
 
-})
-button.addEventListener("click",  show)
+function userNameValidation() {
+    if (userName.value == "") {
+    errUserName("Input is empty!");
+    }
+    else if (userName.value.indexOf(" ") >= 0) {
+    errUserName("Name has spaces");
+    }
+    else if (userName.value.length < 5) {
+    errUserName("Username less then 5");
+    } else if (userName.value.length > 20) {
+    errUserName("Username more then 20");
+    } else
+    {
+    userName.style.borderColor = "green";
+    smallUserName.textContent = "";
+    }
+}
+
+
+
+
+
+//RANKING Y DATA STORAGE
+let button = document.querySelector("#contBtn");
+let userObj = {
+    userName: "",
+    userAge: "",
+    userRecord: "",
+}
+
+function dataStore() {
+    let name = document.getElementById("userName").value;
+    let age = document.getElementById("userAge").value;
+    userObj.userName = name;
+    playerName = name;
+    userObj.userAge = age;
+    localStorage.setItem(name, JSON.stringify(userObj));
+
+}
 function show() {
-    document.querySelector(".display-game").style.display = "block";
+    document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
 }
+function multi()
+{
+userNameValidation();
 
-// addEventListener.button("click", )
-// function 
+if ( userName.style.borderColor == "green")
+    {
+        dataStore();
+        show();
+    }
+}
 
-document.querySelector("#gameStart").addEventListener("click", randomTimer )
-  
-function randomTimer (){
-    let randomSeconds = Math.random()*10000;
-    let intervalSeconds = setTimeout(function (){
-        const gameStop = document.getElementById("gameStop");
-        gameStop.style.display = "block";
-        console.log("hello");
+
+
+//TIMER
+let secondsElapsed = 0;
+let milisecElapsed = 0;
+
+const buttonStart = document.querySelector("#gameStart");
+buttonStart.addEventListener("click", randomTimer)
+
+function randomTimer() {
+    buttonStart.style.display = "none";
+    let randomSeconds = Math.random() * 10000;
+    let gameStop = document.querySelector(".button-end");
+    let timeOutSeconds = setTimeout(function () {
+        gameStop.style.display = "flex";
+        function timeElapsed() {
+            milisecElapsed++;
+                            }
+        
+
+        let milisecondsElapsed = setInterval(timeElapsed, 1000)
+        let buttonStop = document.querySelector("#gameEnd");
+        buttonStop.addEventListener("click", printTime)
+
+        function printTime() {
+            clearInterval(milisecondsElapsed);
+            console.log(milisecElapsed);
+            // userObj.userRecord=milisecElapsed;
+            JSON.parse(localStorage.getItem(playerName)).userRecord = milisecElapsed  ;
+
+            // console.log(milisecElapsed);
+            // console.log(secondsElapsed)
         }
-    ,randomSeconds);}
+
+    }, randomSeconds);
+}

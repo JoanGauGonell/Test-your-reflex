@@ -11,44 +11,83 @@
 </head>
 
 <body>
+    <header>
+        <video muted autoplay loop>
+            <source src="/Tunel.mp4">
+        </video>
+    </header>
     <!-- PROFILE SECTION -->
-    <section class="profile" >
+    <section class="profile">
         <div class="profile-menu">
-        <h1 class="title-profile">Test your reflexes</h1>
-        <form id="formProfile" class="form-profile" action="">
-            <div class="input-profile">
-                <label for="userName">User name:</label>
-                <input id="userName" type="text" name="UserName">
-            </div>
-            <div class="input-profile">
-                <label for="userAge">Age:</label>
-                <input id="userAge" type="text" name="userAge">
-            </div>
-            <div class="submit-profile">
-                <button id="contBtn" type="button" value="Continue">CONTINUE</button>
-            </div>
-        </form>
-    </div>
+            <h1 class="title-profile">Test your reflexes</h1>
+            <form id="formProfile" class="form-profile" action="">
+                <div class="input-profile">
+                    <label for="userName">User name:</label>
+                    <input id="userName" type="text" name="UserName"><br>
+                    <small id="errUserName"></small>
+                </div>
+                <div class="input-profile">
+                    <label for="userAge">Age:</label>
+                    <input id="userAge" type="text" name="userAge">
+                </div>
+                <div class="submit-profile">
+                    <button id="contBtn" type="button" value="Continue">CONTINUE</button>
+                </div>
+            </form>
+        </div>
     </section>
     <!-- DISPLAY GAME -->
-    <section class="display-game">
-        <div class="game-container">
-        <h1 class="title-getReady">Start Game</h1>
-        <p class="name-user">Manuel</p>
-        <div class="display-game">
-            <div class="button-start">
-                <label for=""><input type="button" id="gameStart" value="Start Game!"></label>
-            <div class="ranking-position">
-        </section>
+    <section class="game">
+        <div class="display-section">
+            <div class="game-container">
+                <div class="display-game-header">
+                    <h1 class="title-getReady">Ready to BEGIN? Click the start button!</h1>
+                    <div class="playerName__style--right">
+                        <h2>PLAYER:</h2>
+                        <p class="playerName" id="playerName">Adria</p>
+                    </div>
+                </div>
+                <!-- DISPLAY GAME -->
+                <div class="display-game">
+                    <!-- BUTTON START -->
+                    <div class="button-start">
+                        <label for="gameStart"><input type="button" id="gameStart" value="Start Game!">
+                        </label>
+                    </div>
+                    <!-- BUTTON STOP -->
+                    <div class="button-end">
+                        <label for="gameEnd"><input type="button" id="gameEnd" value="STOP">
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- RANKING LIST -->
+            <div class="ranking-list">
+                <h2>RANKING TOP TEN</h2>
+                <div class="player__list--header">
+                </div>
+                <div class="player__list">
+                    <div class="name__list"><p>Name</p><br>
+                        <ol>
+                            <li class="li__span">Adria</li>
+                        </ol>
+                    </div><br>
+                    <div class="score__list"><p>Score</p><br>
+                        <ul>
+                            <li>14 pts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <!-- FINISH PAGE -->
-    <section class="finish-page" hidden>
+    <section class="display__finish">
         <h1 class="title-your-score">YOUR SCORE </h1>
         <div class="my-score">
             <p>20 points </p>
         </div>
     </section>
-    
 </body>
 
 </html>
