@@ -2,6 +2,8 @@
 let playerName = "";
 let smallUserName = document.getElementById("errUserName");
 let userName = document.getElementById("userName");
+let userAge = document.getElementById("userAge");
+let smallUserAge = document.getElementById("errUserAge");
 let buttonStop = document.querySelector("#gameEnd");
 let buttonStartAgain = document.getElementById("buttonStartAgain");
 let userList = [];
@@ -34,6 +36,35 @@ function userNameValidation() {
     }
 }
 
+function errUserAge(msg) {
+    document.getElementById("userAge").style.borderColor = "red";
+    smallUserAge.textContent = msg;
+}
+
+function userAgeValidation() {
+    if (userAge.value == "") {
+        errUserAge("Input is empty!");
+    } else if (userAge.value.indexOf(" ") >= 0) {
+        errUserAge("Age has spaces");
+    } else if (userAge.value.length < 2) {
+        errUserAge("UserAge less than 2");
+    } else if (userAge.value.length > 2) {
+        errUserAge("UserAge more then 2");
+    } else {
+        userAge.style.borderColor = "green";
+        smallUserAge.textContent = "";
+    }
+}
+
+function multi() {
+    userNameValidation();
+    userAgeValidation();
+
+    if (userName.style.borderColor == "green" && userAge.style.borderColor == "green") {
+        dataStore();
+        show();
+    }
+}
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
 
@@ -41,16 +72,17 @@ function show() {
     document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
 }
-function getName (){
+function getName() {
     let name = document.getElementById("userName").value;
-let actualName = document.getElementById("playerName");
-actualName.textContent = name;
+    let actualName = document.getElementById("playerName");
+    actualName.textContent = name;
 
 }
 
 let buttonNewUser = document.querySelector("#btnNewUser");
-buttonNewUser.addEventListener("click",showProfile);
-function showProfile(){
+buttonNewUser.addEventListener("click", showProfile);
+
+function showProfile() {
     location.reload();
 }
 
@@ -95,9 +127,9 @@ buttonStart.addEventListener("click", startButton);
 function startButton() {
     hideTitle();
     randomTimer();
-    buttonStop.style.marginLeft= getRandom(0, 400 - 200)+'px'; // 👈🏼 Horizontally
-    buttonStop.style.marginTop = getRandom(0, 400 - 200)+'px'; // 👈🏼 Vertically
-    document.getElementById("playerNameStyle").style.justifyContent= "space-between";
+    buttonStop.style.marginLeft = getRandom(0, 400 - 200) + 'px'; // 👈🏼 Horizontally
+    buttonStop.style.marginTop = getRandom(0, 400 - 200) + 'px'; // 👈🏼 Vertically
+    document.getElementById("playerNameStyle").style.justifyContent = "space-between";
 }
 
 function hideTitle() {
@@ -111,92 +143,104 @@ function randomTimer() {
     let gameStop = document.querySelector(".button-end");
     let timeOutSeconds = setTimeout(function () {
         gameStop.style.display = "flex";
-        let secondsElapsed=0;
+        let secondsElapsed = 0;
         function timeElapsed() {
             milisecElapsed++;
-            
-            
+
+
             // console.log(milisecElapsed +"miliseconds");
             // console.log (secondsElapsed + "seconds")
         }
         let milisecondsElapsed = setInterval(timeElapsed, 10);
         buttonStop.addEventListener("click", multiFunction);
 
-        function multiFunction(){
+        function multiFunction() {
             printTime();
             dataStore();
-            
+
         }
         function printTime() {
             clearInterval(milisecondsElapsed);
-            let secondsElapsed = milisecElapsed/100; 
-            userObj.userRecord = secondsElapsed;           
+            let secondsElapsed = milisecElapsed / 100;
+            userObj.userRecord = secondsElapsed;
             // console.log(milisecElapsed +"miliseconds");
-            console.log (secondsElapsed + "seconds")
+            console.log(secondsElapsed + "seconds")
             // buttonStop.style.display="none";
-            document.getElementById("myScore").textContent=secondsElapsed;
+            document.getElementById("myScore").textContent = secondsElapsed;
             // userObj.userRecord = secondsElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
     }, randomSeconds);
-        function dataStore() {
-            
-            let name = document.getElementById("userName").value;
-            let age = document.getElementById("userAge").value;
-            userObj.userName = name;
-            userObj.userAge = age;
-            // userObj.userRecord = localStorage.getItem ("playerName", JSON.parse(userObj.userRecord));
-            playerName = name;
-            localStorage.setItem(name, JSON.stringify(userObj));
-        
-            let actualName = document.getElementById("playerName");
-            actualName.textContent = playerName;
-        
-            if (localStorage.getItem("usersList") == null) {
-                userList.push(userObj);
-                console.log(userList)
-                localStorage.setItem("usersList", JSON.stringify(userList));
-            } else {
-                userList = JSON.parse(localStorage.getItem("usersList"));
-                userList.push(userObj);
-                console.log(userList);
-                localStorage.setItem("usersList", JSON.stringify(userList));
-            }
+    function dataStore() {
+
+        let name = document.getElementById("userName").value;
+        let age = document.getElementById("userAge").value;
+        userObj.userName = name;
+        userObj.userAge = age;
+        // userObj.userRecord = localStorage.getItem ("playerName", JSON.parse(userObj.userRecord));
+        playerName = name;
+        localStorage.setItem(name, JSON.stringify(userObj));
+
+        let actualName = document.getElementById("playerName");
+        actualName.textContent = playerName;
+
+        if (localStorage.getItem("usersList") == null) {
+            userList.push(userObj);
+            console.log(userList)
+            localStorage.setItem("usersList", JSON.stringify(userList));
+        } else {
+            userList = JSON.parse(localStorage.getItem("usersList"));
+            userList.push(userObj);
+            console.log(userList);
+            localStorage.setItem("usersList", JSON.stringify(userList));
         }
+    }
 
 
 }
 
-const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+const getRandom = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 
 
 buttonStop.addEventListener("click", showFinishPage);
 
-function showFinishPage(){
-    document.querySelector(".button-end").style.display= "none";
-    document.getElementById("displayFinish").style.display= "flex";
+function showFinishPage() {
+    document.querySelector(".button-end").style.display = "none";
+    document.getElementById("displayFinish").style.display = "flex";
 }
 
 
 buttonStartAgain.addEventListener("click", showGame);
 
-function showGame(){
-    document.getElementById("displayFinish").style.display= "none";
-    document.getElementById("gameStart").style.display= "flex";
-    milisecElapsed=0;
+function showGame() {
+    document.getElementById("displayFinish").style.display = "none";
+    document.getElementById("gameStart").style.display = "flex";
+    milisecElapsed = 0;
 }
 
 
 //SORT ARRAY
-function sortArray(){
- userArray =  JSON.parse(localStorage.getItem("usersList"));
+function sortArray() {
+    userArray = JSON.parse(localStorage.getItem("usersList"));
 
- userArray.sort((a, b) => {
-    return a.userRecord - b.userRecord;
-});
- 
+    userArray.sort((a, b) => {
+        return a.userRecord - b.userRecord;
+    });
+    // userList = userArray;
+    console.log(userArray);
+    
+}
 
-console.log(userArray);}
+
+    
+
+function createLi() {
+    for (let i = 0; i < 10; i++) {
+        textcontent = userArray[i].name;
+        textContent = userArray[i].userRecord
+    }
+}
+
 
 sortArray();
