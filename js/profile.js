@@ -34,19 +34,17 @@ function userNameValidation() {
 
 //RANKING Y DATA STORAGE
 let button = document.querySelector("#contBtn");
+
 function show() {
     document.querySelector(".game").style.display = "flex";
     document.querySelector(".profile").style.display = "none";
 }
 
 let buttonNewUser = document.querySelector("#btnNewUser");
-buttonNewUser.addEventListener("click",showProfile);
-function showProfile(){
-    document.querySelector(".game").style.display = "none";
-    document.querySelector(".profile").style.display = "flex";
-    document.querySelector("#userName").value= "";
-    document.querySelector("#userAge").value= "";
+buttonNewUser.addEventListener("click", showProfile);
 
+function showProfile() {
+    location.reload();
 }
 
 function multi() {
@@ -64,20 +62,21 @@ function dataStore() {
     userObj.userName = name;
     userObj.userAge = age;
     playerName = name;
-    localStorage.setItem(name, JSON.stringify(userObj));
 
-    let actualName = document.getElementById("playerName");
-    actualName.textContent = playerName;
 
     if (localStorage.getItem("usersList") == null) {
         userList.push(userObj);
         localStorage.setItem("usersList", JSON.stringify(userList));
-    } else {
+    } else if (!localStorage.getItem(name)) {
         userList = JSON.parse(localStorage.getItem("usersList"));
         userList.push(userObj);
-        console.log(userList);
         localStorage.setItem("usersList", JSON.stringify(userList));
     }
+
+    localStorage.setItem(name, JSON.stringify(userObj));
+
+    let actualName = document.getElementById("playerName");
+    actualName.textContent = playerName;
 }
 
 //TIMER
@@ -94,6 +93,7 @@ function startButton() {
 
 function hideTitle() {
     document.getElementById("getReady").style.display = "none";
+    document.getElementById("btnNewUser").style.display = "flex";
 }
 
 function randomTimer() {
@@ -105,15 +105,21 @@ function randomTimer() {
 
         function timeElapsed() {
             milisecElapsed++;
+            let secondsElapsed = 0;
+            if (milisecElapsed > 99) {
+                secondsElapsed++;
+                milisecElapsed = 0;
+            }
         }
-        let milisecondsElapsed = setInterval(timeElapsed, 1000);
+        let milisecondsElapsed = setInterval(timeElapsed, 10);
         let buttonStop = document.querySelector("#gameEnd");
         buttonStop.addEventListener("click", printTime);
 
         function printTime() {
             clearInterval(milisecondsElapsed);
             console.log(milisecElapsed);
-  
+            console.log(secondsElapsed)
+
             userObj.userRecord = milisecElapsed;
             localStorage.setItem(playerName, JSON.stringify(userObj));
         }
