@@ -34,4 +34,4 @@ Here you can see your score rising or falling or just checking the scores of eve
 # Java
 - A steep learning curve with issues a long the way but overall functionality was aquired.
 # Who maintains and contributes to the project
-### Project was build by TEAM 3 **Joan**, **Adriá**, **Matias**, **Miguel**
+### Project was build by TEAM 3 **Joan**, **Adrià**, **Matias**, **Miguel**
