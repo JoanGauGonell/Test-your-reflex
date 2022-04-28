@@ -14,9 +14,8 @@
     <video id="videoBackGround" muted autoplay loop>
         <source src="Tunel.mp4">
     </video>
-    <audio id="soundIntro" autoplay loop>
-        <source src="music-intro.mp3">
-    </audio>
+    <!-- <audio id="soundIntro" autoplay src="music-intro.mp3" type="audio/mp3"></audio> -->
+    <audio><source id="soundContinue" src="sound-button.wav"></audio>
     <!-- PROFILE SECTION -->
     <section class="profile">
         <h1 class="title-profile">Test your reflexes</h1>
@@ -35,7 +34,7 @@
                 <div class="submit-profile">
                     <button id="contBtn" type="button" value="Continue">CONTINUE</button>
                 </div>
-                <div id="muteSound"><button>Music off</button></div>
+                <!-- <div><button id="muteSound" onclick="soundMute()">Music off</button></div> -->
             </form>
         </div>
     </section>
