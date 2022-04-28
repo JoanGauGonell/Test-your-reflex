@@ -110,6 +110,7 @@
     background: rgb(255,184,0);
     background: linear-gradient(225deg, rgb(255, 172, 17) 28%, rgba(255,115,0,1) 88%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -121,6 +122,7 @@
     background: rgb(255,184,0);
     background: linear-gradient(225deg, rgb(255, 172, 17) 28%, rgba(255,115,0,1) 88%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 .my-score p{
