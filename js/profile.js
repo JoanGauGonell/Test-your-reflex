@@ -28,8 +28,8 @@ function userNameValidation() {
         errUserName("Name has spaces");
     } else if (userName.value.length < 5) {
         errUserName("Username less then 5");
-    } else if (userName.value.length > 20) {
-        errUserName("Username more then 20");
+    } else if (userName.value.length > 10) {
+        errUserName("Username more then 10");
     } else {
         userName.style.borderColor = "green";
         smallUserName.textContent = "";
@@ -59,7 +59,6 @@ function userAgeValidation() {
 function multi() {
     userNameValidation();
     userAgeValidation();
-    
 
     if (userName.style.borderColor == "green" && userAge.style.borderColor == "green") {
         dataStore();
@@ -224,11 +223,28 @@ function showGame() {
     milisecElapsed = 0;
 }
 
-document.getElementById("muteSound").addEventListener("click", soundMute);
+
+// FUNCTION SOUND MUTE INTRO
+
+const buttonMute = document.getElementById("muteSound");
+// buttonMute.addEventListener("click", soundMute);
+const soundContinue = document.getElementById("soundIntro");
 
 function soundMute(){
-    document.getElementById("soundIntro").mute = true;
+    soundContinue.muted = true;
+    showProfile()
 }
+
+
+// SOUND CONTINUE
+// button.addEventListener("click", soundCountinue);
+
+// function soundContinue(){
+//     let audioContinue = document.getElementById("soundContinue");
+//     audioContinue.setAttribute("src", "/sound-button.wav");
+//     audioContinue.play();
+// }
+
 
 //SORT ARRAYlet ol = document.getElementById("recordName")
 function sortArray() {
