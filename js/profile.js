@@ -28,8 +28,8 @@ function userNameValidation() {
         errUserName("Name has spaces");
     } else if (userName.value.length < 5) {
         errUserName("Username less then 5");
-    } else if (userName.value.length > 20) {
-        errUserName("Username more then 20");
+    } else if (userName.value.length > 10) {
+        errUserName("Username more then 10");
     } else {
         userName.style.borderColor = "green";
         smallUserName.textContent = "";
@@ -59,7 +59,6 @@ function userAgeValidation() {
 function multi() {
     userNameValidation();
     userAgeValidation();
-    
 
     if (userName.style.borderColor == "green" && userAge.style.borderColor == "green") {
         dataStore();
@@ -128,9 +127,9 @@ buttonStart.addEventListener("click", startButton);
 function startButton() {
     hideTitle();
     randomTimer();
-    buttonStop.style.marginLeft = getRandom(0, 400 - 200) + 'px'; // 👈🏼 Horizontally
-    buttonStop.style.marginTop = getRandom(0, 400 - 200) + 'px'; // 👈🏼 Vertically
-    document.getElementById("playerNameStyle").style.justifyContent = "space-between";
+    buttonStop.style.marginLeft= getRandom(0, 400 - 800)+'px'; // 👈🏼 Horizontally
+    buttonStop.style.marginTop = getRandom(0, 300 - 600)+'px'; // 👈🏼 Vertically
+    document.getElementById("playerNameStyle").style.justifyContent= "space-between";
 }
 
 function hideTitle() {
@@ -158,7 +157,7 @@ function randomTimer() {
         function multiFunction() {
             printTime();
             dataStore();
-            printRecord()
+            printRecord();
 
         }
         function printTime() {
@@ -209,6 +208,7 @@ buttonStop.addEventListener("click", showFinishPage);
 
 function showFinishPage() {
     sortArray();
+    
     document.querySelector(".button-end").style.display = "none";
     document.getElementById("displayFinish").style.display = "flex";
 
@@ -222,6 +222,28 @@ function showGame() {
     document.getElementById("gameStart").style.display = "flex";
     milisecElapsed = 0;
 }
+
+
+// FUNCTION SOUND MUTE INTRO
+
+const buttonMute = document.getElementById("muteSound");
+// buttonMute.addEventListener("click", soundMute);
+const soundContinue = document.getElementById("soundIntro");
+
+function soundMute(){
+    soundContinue.muted = true;
+    showProfile()
+}
+
+
+// SOUND CONTINUE
+// button.addEventListener("click", soundCountinue);
+
+// function soundContinue(){
+//     let audioContinue = document.getElementById("soundContinue");
+//     audioContinue.setAttribute("src", "/sound-button.wav");
+//     audioContinue.play();
+// }
 
 
 //SORT ARRAYlet ol = document.getElementById("recordName")

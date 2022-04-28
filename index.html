@@ -11,13 +11,14 @@
 </head>
 
 <body>
-    <header>
-        <video muted autoplay loop>
-            <source src="Tunel.mp4">
-        </video>
-    </header>
+    <video id="videoBackGround" muted autoplay loop>
+        <source src="Tunel.mp4">
+    </video>
+    <!-- <audio id="soundIntro" autoplay src="music-intro.mp3" type="audio/mp3"></audio> -->
+    <audio><source id="soundContinue" src="sound-button.wav"></audio>
     <!-- PROFILE SECTION -->
     <section class="profile">
+        <h1 class="title-profile">Test your reflexes</h1>
         <div class="profile-menu">
             <form id="formProfile" class="form-profile" action="">
                 <div class="input-profile">
@@ -28,14 +29,14 @@
                 <div class="input-profile">
                     <label for="userAge">Age:</label>
                     <input id="userAge" type="number" name="userAge">
+                    <small id="errUserAge"></small>
                 </div>
                 <div class="submit-profile">
                     <button id="contBtn" type="button" value="Continue">CONTINUE</button>
-                    <small id="errUserAge"></small>
                 </div>
+                <!-- <div><button id="muteSound" onclick="soundMute()">Music off</button></div> -->
             </form>
         </div>
-        <h1 class="title-profile">Test your reflexes</h1>
     </section>
     <!-- DISPLAY GAME -->
     <section class="game">
@@ -60,7 +61,7 @@
                         <div class="my-score">
                             <p id="myScore"></p>
                         </div>
-                        <button id="buttonStartAgain" class="button__finishPage"> Start Again! </button>
+                        <label for="buttonStartAgain"><input id="buttonStartAgain" class="button__finishPage"  type="button" value="Start Again!"></label>
                     </section>
                     <!-- BUTTON START -->
                     <div class="button-start">
